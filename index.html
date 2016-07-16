@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="PokemonGoApp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Pokemon Go</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<!-- load Angular -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
+	<!-- load ui-router -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+	<!-- load our script-->
+	<script src="js/main.js"></script>
+</head>
+
+<body ng-controller="HomeCtrl">
+
+	<nav role="navigation">
+		<ul class="container list-unstyled list-inline">
+			<li><a ui-sref="home">a pokemon logo</a><li>
+			<li><a ui-sref="home">Home</a></li>
+			<li><a ui-sref="pokedex">Pokedex</a></li>
+			<li><a ui-sref="items">Items</a></li>
+			<li><a ui-sref="wishlist">Wish List</a></li>
+		</ul>
+	</nav>
+
+	<header class="container" role="banner">
+		<h1>hello im a header</h1>
+	</header>
+
+	<!-- main was here -->
+	<div ui-view></div>
+
+	<footer role="contentinfo">
+		<div class="container">
+			<p>This page was created by Alex, Jessie, and Joy.</p>
+			<p>&copy; 2016</p>
+		</div>
+	</footer>
+
+</body>
+
+</html>
