@@ -39,7 +39,11 @@ myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $u
 }]);
 
 myApp.controller('HomeCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
-
+	$http.get('data/game-descriptions.json').then(function (response) {
+		var descriptions = response.data;
+		$scope.descriptions = descriptions;
+		console.log(response.data)
+	});
 }]);
 
 myApp.controller('PokedexCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter){
