@@ -13,7 +13,7 @@
 
 	<!-- load Angular -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
 	<!-- load ui-router -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
 	<!-- load our script-->
@@ -24,17 +24,18 @@
 
 	<nav role="navigation">
 		<ul class="container list-unstyled list-inline">
-			<li><a ui-sref="home">a pokemon logo</a><li>
-			<li><a ui-sref="home">Home</a></li>
-			<li><a ui-sref="pokedex">Pokedex</a></li>
-			<li><a ui-sref="items">Items</a></li>
-			<li><a ui-sref="wishlist">Wish List</a></li>
+			<!--<li><a ui-sref="home">a pokemon logo</a><li>-->
+			<li><img src="images/icon.png" id="icon"></li>
+			<li class="white"><a ui-sref="home">Home</a></li>
+			<li class="white"><a ui-sref="pokedex">Pokedex</a></li>
+			<li class="white"><a ui-sref="items">Items</a></li>
+			<li class="white"><a ui-sref="wishlist">Wish List</a></li>
 		</ul>
 	</nav>
 
-	<header class="container" role="banner">
+	<!--<header class="container" role="banner">
 		<h1>hello im a header</h1>
-	</header>
+	</header>-->
 
 	<!-- main was here -->
 	<div ui-view></div>

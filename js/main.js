@@ -25,7 +25,7 @@ myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $u
 	})
 
 	.state('detail', {
-		url:'/detail/:pokemon',
+		url:'/detail/:pokemon.entry_number',
 		templateUrl:'partials/detail.html',
 		controller:'DetailCtrl'
 	})
@@ -43,15 +43,41 @@ myApp.controller('HomeCtrl', ['$scope', '$http', '$filter', function($scope, $ht
 }]);
 
 myApp.controller('PokedexCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter){
-  
+	$http.get('data/kanto.json').then(function (response) {
+		var data = response.data.pokemon_entries;   
+		//console.log(response.data.pokemon_entries);
+		$scope.pokedex = data;
+	});
 }]);
 
 myApp.controller('ItemsCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
 
 }]);
 
-myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
-
+myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', function($scope, $http, $filter, $stateParams) {
+	/*var objectDetail = {};*/
+	$http.get('data/kanto.json').then(function (response) {
+		var pokedex = response.data.pokemon_entries;
+		console.log(pokedex);
+		var targetObj = $filter('filter')(pokedex, { //filter the array
+			entry_number: $stateParams.pokemon //for items whose id property is targetId
+		}, true)[0]; //save the 0th result
+		console.log(targetObj);
+		//var url = targetObj.pokemon_species.url;
+		console.log(url);
+		/*$http({
+			url: 'http://pokeapi.co/api/v2/pokemon-species/', 
+			method: "GET"
+		}).then(function(response){
+			var data = response.data;
+			//console.log(data);
+			pictures.push(data);
+			console.log(pictures);
+		});*/
+			// objectDetail = targetObj;
+			// console.log(objectDetail);
+			//$scope.product = targetObj;
+	})
 }]);
 
 myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {

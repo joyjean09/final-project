@@ -1,0 +1,60 @@
+body{
+  background-color:#2c2c44;
+  font-family: Helvetica;
+}
+
+#h1 {
+    margin-top: 55px;
+    margin-bottom: 50px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size: 50px;
+    font-weight: 300;
+    color: black;
+    text-align: center;
+}
+
+footer p {
+    color: white;
+    text-align: center;
+}
+
+#whiteBackground {
+    display: block;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    background-color: white;
+}
+
+.img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#icon {
+    width: 30px;
+    height: 30px;
+}
+
+li {
+    font-size: 20px;
+}
+
+nav {
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+#header {
+    background-image: url("../images/grassland.jpg");
+    display: block;
+    background-size: 100%;
+    background-position: center;
+}
+
+#pokemonImg, #pokemonTitle {
+    cursor: pointer;
+}
