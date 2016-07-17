@@ -1,3 +1,9 @@
 <main class="container" role="main">
     <h1>Here's what you need to know about Pokemon Go.</h1>
+    <div class="container">
+        <div ng-repeat="description in descriptions">
+            <h2>{{description.header}}</h2>
+            <p>{{description.info}}</p>
+        </div>
+    </div>
 </main>
