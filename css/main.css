@@ -19,11 +19,11 @@ footer p {
     text-align: center;
 }
 
-#whiteBackground {
+#whiteBackground , #whiteBlock {
     display: block;
     padding: 30px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;;
     margin-bottom: 50px;
     background-color: white;
 }
@@ -44,7 +44,7 @@ li {
 }
 
 nav {
-    margin-top: 70px;
+    margin-top: 30px;
     margin-bottom: 20px;
 }
 
@@ -57,4 +57,9 @@ nav {
 
 #pokemonImg, #pokemonTitle {
     cursor: pointer;
+}
+
+#yellowBlock {
+    padding: 20px;
+    background-color: lightyellow;
 }

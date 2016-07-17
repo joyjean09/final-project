@@ -13,7 +13,7 @@
     
     <div id="whiteBackground" class="container">
             <div class="row">
-                <div class="col-sm-6 col-md-2" ng-repeat="pokemon in pokedex | orderBy:ordering  | filter:searchProducts">
+                <div class="col-sm-4 col-md-2" ng-repeat="pokemon in pokedex | orderBy:ordering  | filter:searchProducts">
                     <img ui-sref="detail( {'pokemon':pokemon.entry_number} )"  id="pokemonImg" ng-src="{{pokemon.pokemon_species.image}}" class="img">
                     <p ui-sref="detail( {'pokemon':pokemon.entry_number} )"  id="pokemonTitle" class="text-center">{{pokemon.pokemon_species.name}}</p>
                 </div>
