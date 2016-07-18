@@ -28,7 +28,7 @@ footer p {
     background-color: white;
 }
 
-.img {
+.img, #imgaeMiddle {
     display: block;
     margin-left: auto;
     margin-right: auto;

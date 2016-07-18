@@ -76,6 +76,13 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', fu
 			console.log(data);
 			$scope.pokemon = data;
 		});
+
+		var number = $stateParams.pokemon;
+		console.log(number);
+		var pokedexBefore = response.data.pokemon_entries[number - 2];
+		console.log(pokedexBefore);
+		$scope.pokedexBefore = pokedexBefore;
+
 	})
 }]);
 
