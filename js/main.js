@@ -58,17 +58,20 @@ myApp.controller('HomeCtrl', ['$scope', '$http', '$filter', function ($scope, $h
 myApp.controller('PokedexCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
 	$http.get('data/kanto.json').then(function (response) {
 		var data = response.data.pokemon_entries;
-		//console.log(response.data.pokemon_entries);
 		$scope.pokedex = data;
 	});
 }]);
 
 myApp.controller('ItemsCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
 	$http.get('data/item-list.json').then(function (response) {
-		var data = response.data;
-		console.log(response);
+		var data = response.data.data;
 		$scope.items = data;
+		console.log($scope.items);
 	});
+	$scope.ordering = "name";
+	$scope.sortBy = function(par) {
+		$scope.ordering = par;
+	}
 }]);
 
 myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', function($scope, $http, $filter, $stateParams) {
@@ -104,9 +107,5 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', fu
 }]);
 
 myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
-
-}]);
-
-myApp.controller('ItemsCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
 
 }]);

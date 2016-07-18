@@ -4,135 +4,135 @@
         {
             "img": "../images/bagupgrade.png",
             "name": "Bag Upgrade",
-            "desciption": "Increase the max number of items you can carry by 50.",
-            "cost": "200<img src='../images/pokecoin.png' alt='A pokecoin'>",
+            "description": "Increase the max number of items you can carry by 50.",
+            "cost": "200",
             "gain": "Shop"
         },
         {
             "img": "../images/camera.png",
             "name": "Camera",
-            "desciption": "When you encounter Pokemon in the wild, you can use your camera to photograph them.",
+            "description": "When you encounter Pokemon in the wild, you can use your camera to photograph them.",
             "cost": "None",
             "gain": "From Beginning"
         },
         {
             "img": "../images/egg.png",
             "name": "Egg",
-            "desciption": "An egg can be hatch into any Pokemon by putting it into an incubator and then walking. The rarity of the hatched Pokemon is depend on its requiered walking distance, which 2 km be the common, 5 km be the uncommon, and 10 km be the rare.",
+            "description": "An egg can be hatch into any Pokemon by putting it into an incubator and then walking. The rarity of the hatched Pokemon is depend on its requiered walking distance, which 2 km be the common, 5 km be the uncommon, and 10 km be the rare.",
             "cost": "None",
             "gain": "PokeStop"
         },
         {
             "img": "../images/eggincubator.png",
             "name": "Egg Incubator",
-            "desciption": "A device that incubates an Egg as you walk until it is ready to hatch. A trainer will get one incubator with unlimited use for free, and all the additional incubators that bought from in-game shop or by visiting POKESTOP will breaks after 3 uses.",
-            "cost": "150<img src='../images/pokecoin.png' alt='A pokecoin'>",
-            "gain": "PokeStop<br>Level Up"
+            "description": "A device that incubates an Egg as you walk until it is ready to hatch. A trainer will get one incubator with unlimited use for free, and all the additional incubators that bought from in-game shop or by visiting POKESTOP will breaks after 3 uses.",
+            "cost": "150",
+            "gain": "PokeStop, Level Up"
         },
         {
             "img": "../images/greatball.png",
             "name": "Great ball",
-            "desciption": "A stronger version of the normal poke ball, have a higher chance to catch pokemon.",
+            "description": "A stronger version of the normal poke ball, have a higher chance to catch pokemon.",
             "cost": "None",
-            "gain": "PokeStop<br>Level Up"
+            "gain": "PokeStop, Level Up"
         },
         {
             "img": "../images/hyperpotion.png ",
             "name": "Hyper potion",
-            "desciption": "A stronger version of the Super Potion, can heal pokemon 200 hp on use.",
+            "description": "A stronger version of the Super Potion, can heal pokemon 200 hp on use.",
             "cost": "None",
-            "gain": "PokeStop<br>Level Up"
+            "gain": "PokeStop, Level Up"
         },
         {
             "img": "../images/incense.png",
             "name": "Incense",
-            "desciption": "Incense with a mysterious fragrance that lures wild Pokemon to your location for 30 minutes.",
-            "cost": "one for 80<img src='../images/pokecoin.png' alt='A pokecoin'>8 for 500<img src='../images/pokecoin.png' alt='A pokecoin'>25 for 1250<img src='../images/pokecoin.png' alt='A pokecoin'>",
-            "gain": "PokeStop<br>Level Up<br>Shop"
+            "description": "Incense with a mysterious fragrance that lures wild Pokemon to your location for 30 minutes.",
+            "cost": "80",
+            "gain": "PokeStop, Level Up, Shop"
         },
         {
             "img": "../images/luckyegg.png",
             "name": "Lucky Egg",
-            "desciption": "A Lucky Egg that's filled with happiness! Earns double XP for 30 minutes.",
-            "cost": "one for 80<img src='../images/pokecoin.png' alt='A pokecoin'>8 for 500<img src='../images/pokecoin.png' alt='A pokecoin'>25 for 1250<img src='../images/pokecoin.png' alt='A pokecoin'>",
-            "gain": "PokeStop<br>Level Up<br>Shop"
+            "description": "A Lucky Egg that's filled with happiness! Earns double XP for 30 minutes.",
+            "cost": "80",
+            "gain": "PokeStop, Level Up, Shop"
         },
         {
             "img": "../images/luremodule.png ",
             "name": "Lure Module",
-            "desciption": "A module that attracts Pokemon to a PokeStop for 30 minutes. The effect also benefits other people nearby.",
-            "cost": "one for 100 <img src='../images/pokecoin.png' alt='A pokecoin'>8 for 680<img src='../images/pokecoin.png' alt='A pokecoin'>",
-            "gain": "PokeStop<br>Level Up<br>Shop"
+            "description": "A module that attracts Pokemon to a PokeStop for 30 minutes. The effect also benefits other people nearby.",
+            "cost": "100",
+            "gain": "PokeStop, Level Up, Shop"
         },
         {
             "img": "../images/maxpotion.png",
             "name": "Max Potion",
-            "desciption": "Ultra version of the healing potion, will heal a Pokemon completely on use.",
+            "description": "Ultra version of the healing potion, will heal a Pokemon completely on use.",
             "cost": "None",
-            "gain": "PokeStop<br>Level Up"
+            "gain": "PokeStop, Level Up"
         },
         {
             "img": "../images/maxrevive.png",
             "name": "Max Revive",
-            "desciption": "Ultra version of the revive, will revive a fainted Pokemon and restores its health to max.",
+            "description": "Ultra version of the revive, will revive a fainted Pokemon and restores its health to max.",
             "cost": "None",
-            "gain": "PokeStop<br>Level Up"
+            "gain": "PokeStop, Level Up"
         },
         {
             "img": "../images/20pokeballs.png",
             "name": "Poke Ball",
-            "desciption": "A device for catching wold Pokemon. It's thrown like a ball at a Pokemon, comfortably encapsulating its target.",
-            "cost": "20 for 100<img src='../images/pokecoin.png' alt='A pokecoin'>1000 for 460<img src='../images/pokecoin.png' alt='A pokecoin'>200 for 800<img src='../images/pokecoin.png' alt='A pokecoin'>",
-            "gain": "PokeStop<br>Level Up<br>Shop"
+            "description": "A device for catching wold Pokemon. It's thrown like a ball at a Pokemon, comfortably encapsulating its target.",
+            "cost": "100 coins for 20 pokeballs",
+            "gain": "PokeStop, Level Up, Shop"
         },
         {
             "img": "../images/storageupgrade.png",
             "name": "Storage Upgrade",
-            "desciption": "Increase the max number of Pokemon you can carry by 50.",
-            "cost": "200<img src='../images/pokecoin.png' alt='A pokecoin'>",
+            "description": "Increase the max number of Pokemon you can carry by 50.",
+            "cost": "200",
             "gain": "Shop"
         },
         {
             "img": "../images/potion.png",
             "name": "Potion",
-            "desciption": "A spray-type medicine for treating wounds. It restores the Hp of one Pokemon by 20 points.",
+            "description": "A spray-type medicine for treating wounds. It restores the Hp of one Pokemon by 20 points.",
             "cost": "None",
-            "gain": "PokeStop<br>Level Up"
+            "gain": "PokeStop, Level Up"
         },
         {
             "img": "../images/razzberry.png",
             "name": "Razz Berry",
-            "desciption": "Feed to a Pokemon, and it will be easier to catch on your next throw.",
+            "description": "Feed to a Pokemon, and it will be easier to catch on your next throw.",
             "cost": "None",
-            "gain": "PokeStop<br>Level Up"
+            "gain": "PokeStop, Level Up"
         },
         {
             "img": "../images/revive.png",
             "name": "Revive",
-            "desciption": "A medicine that can revive fainted Pokemon. It also restores half of a fainted Pokemon's maximum HP.",
+            "description": "A medicine that can revive fainted Pokemon. It also restores half of a fainted Pokemon's maximum HP.",
             "cost": "None",
-            "gain": "PokeStop<br>Level Up"
+            "gain": "PokeStop, Level Up"
         },
         {
             "img": "../images/stardust.png",
             "name": "Stardust",
-            "desciption": "Used to Power Up Pokemon.",
+            "description": "Used to Power Up Pokemon.",
             "cost": "None",
             "gain": "Capture Pokemon"
         },
         {
             "img": "../images/superpotion.png",
             "name": "Super Potion",
-            "desciption": "A stronger version of the normal potion, heal Pokemon 50 HP on use.",
+            "description": "A stronger version of the normal potion, heal Pokemon 50 HP on use.",
             "cost": "None",
-            "gain": "PokeStop<br>Level Up"
+            "gain": "PokeStop, Level Up"
         },
         {
             "img": "../images/ultraball.png",
             "name": "Ultra Ball",
-            "desciption": "Ultra version of the Poke Ball, have an even higher chance to catch pokemon than the Great Ball.",
+            "description": "Ultra version of the Poke Ball, have an even higher chance to catch pokemon than the Great Ball.",
             "cost": "None",
-            "gain": "PokeStop<br>Level Up"
+            "gain": "PokeStop, Level Up"
         }
     ]
 }

@@ -1,9 +1,9 @@
 <main class="container" role="main">
     <form id="searchButton" name="searchForm" role="form" novalidate>
-        <div class="form-group form-inline">
-            <input type="text" name="title" id="title" class="form-control" autofocus ng-model="searchProducts">
-            <button type="submit" class="btn btn-primary" ng-click=""><i class="fa fa-search"></i></button>
-        </div>
+            <div class="form-group form-inline">
+                <input type="text" name="search" id="title" class="form-control" autofocus ng-model="search.name">
+                <button class="btn btn-primary"><i class="fa fa-search" aria-label="Search"></i></button>
+            </div>
     </form>
     <header>
         <div id="header" class="container">
@@ -18,18 +18,18 @@
             <thead>
                 <tr>
                     <th class="col-sm-2">Image</th>
-                    <th class="col-sm-2">Item</th>
-                    <th class="col-sm-4">Description</th>
-                    <th class="col-sm-2">Cost</th>
-                    <th class="col-sm-2">Gain Method</th>
+                    <th class="col-sm-2" ng-click="sortBy('name')">Item</th>
+                    <th class="col-sm-4" ng-clcik="sortBy('description')">Description</th>
+                    <th class="col-sm-2" ng-click="sortBy('-cost')">Price</th>
+                    <th class="col-sm-2" ng-click="sortBy('gain')">Gain Method</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in items | orderBy:ordering  | filter:searchProducts">
+                <tr ng-repeat="item in items | orderBy:ordering | filter:search:strict">
                     <th class="col-sm-2 "><img ng-src="{{item.img}}"></th>
                     <th class="col-sm-2 ">{{item.name}}</th>
-                    <th class="col-sm-4 ">{{description}}</th>
-                    <th class="col-sm-2 " id="price">{{item.cost}}</th>
+                    <th class="col-sm-4 ">{{item.description}}</th>
+                    <th class="col-sm-2 " id="price">{{item.cost}}<img id="coins " src="../images/pokecoin.png " alt="A pokecoin"></th>
                     <th class=" col-sm-2 ">{{item.gain}}</th>
                 </tr>
             </tbody>
