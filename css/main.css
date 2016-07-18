@@ -13,22 +13,30 @@ body{
     color: black;
     text-align: center;
 }
-
+a {
+   color:white; 
+}
+a:hover, a:active {
+    color:orangered;
+    text-decoration:none;
+}
 footer p {
     color: white;
     text-align: center;
 }
-
-#whiteBackground {
+#wishlist {
+    float:right;
+}
+#whiteBackground , #whiteBlock {
     display: block;
     padding: 30px;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto;;
     margin-bottom: 50px;
     background-color: white;
 }
 
-.img {
+.img, #imgaeMiddle {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -44,7 +52,7 @@ li {
 }
 
 nav {
-    margin-top: 70px;
+    margin-top: 30px;
     margin-bottom: 20px;
 }
 
@@ -55,7 +63,7 @@ nav {
     background-position: center;
 }
 
-#pokemonImg, #pokemonTitle {
+#pokemonImg, #pokemonTitle, #imageBefore, #text, #icon {
     cursor: pointer;
 }
 
@@ -87,4 +95,77 @@ nav {
 
 #price {
     text-align: center;
+}
+
+#h2 {
+    font-size:40px;
+}
+
+#description{
+    font-size:20px;
+    padding-left:50px;
+}
+
+#teams{
+    font-size:20px;
+}
+
+#descriptionDivs{
+    padding:2em;
+}
+
+#teams {
+    background-color: lightgray;
+    display: block;
+    margin:auto;
+    padding:2em;
+    text-align:center;
+}
+
+#instinct, #valor, #mystic {
+    display:none;
+    color:black;
+    width: auto;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    padding:20px;
+}
+
+#instinctImg {
+    margin-top:40px;
+    margin-bottom:33px;
+    margin-left:30px;
+    margin-right:20px;
+}
+
+#mysticImg {
+    margin:5px;
+    margin-left:20px;
+}
+
+#valorImg{
+    margin-left:20px;
+}
+
+#instinct {
+    background:rgba(225, 225, 0, .5);
+}
+
+#valor {
+    background:rgba(255, 0, 0, .5);
+}
+
+#mystic {
+    background:rgba(0, 0, 255, .3);
+}
+
+#yellowBlock {
+    padding: 20px;
+    background-color: lightyellow;
+}
+
+#addToWishList {
+    float: right;
+    margin-top: 45px;
 }

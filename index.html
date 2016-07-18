@@ -6,7 +6,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<!--title and icon-->
+	<link rel="icon" type="image/png" href="images/icon.png" />
 	<title>Pokemon Go</title>
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/main.css">
@@ -14,6 +17,8 @@
 	<!-- load Angular -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.js"></script>
+	<!-- load jQuery -->
+	<script src="https://code.jquery.com/jquery-3.0.0.js"></script>
 	<!-- load ui-router -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
 	<!-- load our script-->
@@ -26,9 +31,9 @@
 		<ul class="container list-unstyled list-inline">
 			<li><img ui-sref="home" src="images/icon.png" id="icon"></li>
 			<li class="white"><a ui-sref="home">Home</a></li>
-			<li class="white"><a ui-sref="pokedex">Pokedex</a></li>
+			<li class="white"><a ui-sref="pokedex">Pokédex</a></li>
 			<li class="white"><a ui-sref="items">Items</a></li>
-			<li class="white"><a ui-sref="wishlist">Wish List</a></li>
+			<li id="wishlist" class="white"><a ui-sref="wishlist">Wish List</a></li>
 		</ul>
 	</nav>
 
