@@ -1,7 +1,14 @@
 'use strict';
 
 var myApp = angular.module('PokemonGoApp', ['ngSanitize', 'ui.router']);
-
+function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block') {
+          e.style.display = 'none';
+	   }else{
+          e.style.display = 'block';
+	   }
+	}
 //configure ui router; urlRouteProvider is default route if no other states are matched
 myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 
