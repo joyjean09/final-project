@@ -1,3 +1,39 @@
 <main class="container" role="main">
-    <h1>Items</h1>
+    <form id="searchButton" name="searchForm" role="form" novalidate>
+        <div class="form-group form-inline">
+            <input type="text" name="title" id="title" class="form-control" autofocus ng-model="searchProducts">
+            <button type="submit" class="btn btn-primary" ng-click=""><i class="fa fa-search"></i></button>
+        </div>
+    </form>
+    <header>
+        <div id="header" class="container">
+            <h1 id="h1">Items</h1>
+            <p id="item-description"> Items are helpful tools that trainer can get either by randomly collect from the POKESTOP, level up trainer,
+                or buy from in game store.</p>
+        </div>
+    </header>
+
+    <div id="whiteBackground" class="container">
+        <table id="it-table" width="100%">
+            <thead>
+                <tr>
+                    <th class="col-sm-2">Image</th>
+                    <th class="col-sm-2">Item</th>
+                    <th class="col-sm-4">Description</th>
+                    <th class="col-sm-2">Cost</th>
+                    <th class="col-sm-2">Gain Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items | orderBy:ordering  | filter:searchProducts">
+                    <th class="col-sm-2 "><img ng-src="{{item.img}}"></th>
+                    <th class="col-sm-2 ">{{item.name}}</th>
+                    <th class="col-sm-4 ">{{description}}</th>
+                    <th class="col-sm-2 " id="price">{{item.cost}}</th>
+                    <th class=" col-sm-2 ">{{item.gain}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </main>

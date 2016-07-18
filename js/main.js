@@ -3,42 +3,42 @@
 var myApp = angular.module('PokemonGoApp', ['ngSanitize', 'ui.router']);
 
 //configure ui router; urlRouteProvider is default route if no other states are matched
-myApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
 	$stateProvider
-	.state('home', {
-		url:'/home',
-		templateUrl: 'partials/home.html',
-		controller:'HomeCtrl'
-	})
-	
-	.state('pokedex', {
-		url:'/pokedex',
-		templateUrl: 'partials/pokedex.html',
-		controller:'PokedexCtrl'
-	})
+		.state('home', {
+			url: '/home',
+			templateUrl: 'partials/home.html',
+			controller: 'HomeCtrl'
+		})
 
-	.state('items', {
-		url:'/items',
-		templateUrl: 'partials/items.html',
-		controller:'ItemsCtrl'
-	})
+		.state('pokedex', {
+			url: '/pokedex',
+			templateUrl: 'partials/pokedex.html',
+			controller: 'PokedexCtrl'
+		})
 
-	.state('detail', {
-		url:'/detail/:pokemon.entry_number',
-		templateUrl:'partials/detail.html',
-		controller:'DetailCtrl'
-	})
-	
-	.state('wishlist', {
-		url:'/wishlist',
-		templateUrl:'partials/wishlist.html',
-		controller:'WishlistCtrl'
-	})
+		.state('items', {
+			url: '/items',
+			templateUrl: 'partials/items.html',
+			controller: 'ItemsCtrl'
+		})
+
+		.state('detail', {
+			url: '/detail/:pokemon.entry_number',
+			templateUrl: 'partials/detail.html',
+			controller: 'DetailCtrl'
+		})
+
+		.state('wishlist', {
+			url: '/wishlist',
+			templateUrl: 'partials/wishlist.html',
+			controller: 'WishlistCtrl'
+		})
 	$urlRouterProvider.otherwise('/pokedex');
 }]);
 
-myApp.controller('HomeCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+myApp.controller('HomeCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
 	$http.get('data/game-descriptions.json').then(function (response) {
 		var descriptions = response.data;
 		$scope.descriptions = descriptions;
@@ -46,19 +46,23 @@ myApp.controller('HomeCtrl', ['$scope', '$http', '$filter', function($scope, $ht
 	});
 }]);
 
-myApp.controller('PokedexCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter){
+myApp.controller('PokedexCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
 	$http.get('data/kanto.json').then(function (response) {
-		var data = response.data.pokemon_entries;   
+		var data = response.data.pokemon_entries;
 		//console.log(response.data.pokemon_entries);
 		$scope.pokedex = data;
 	});
 }]);
 
-myApp.controller('ItemsCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
-
+myApp.controller('ItemsCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
+	$http.get('data/item-list.json').then(function (response) {
+		var data = response.data;
+		console.log(response);
+		$scope.items = data;
+	});
 }]);
 
-myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', function($scope, $http, $filter, $stateParams) {
+myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', function ($scope, $http, $filter, $stateParams) {
 	/*var objectDetail = {};*/
 	$http.get('data/kanto.json').then(function (response) {
 		var pokedex = response.data.pokemon_entries;
@@ -78,12 +82,16 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', fu
 			pictures.push(data);
 			console.log(pictures);
 		});*/
-			// objectDetail = targetObj;
-			// console.log(objectDetail);
-			//$scope.product = targetObj;
+		// objectDetail = targetObj;
+		// console.log(objectDetail);
+		//$scope.product = targetObj;
 	})
 }]);
 
-myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
+
+}]);
+
+myApp.controller('ItemsCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
 
 }]);

@@ -58,3 +58,33 @@ nav {
 #pokemonImg, #pokemonTitle {
     cursor: pointer;
 }
+
+#item-description {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#it-table, #it-table th, #it-table td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#it-table td {
+    padding-bottom: 5%;
+}
+
+#it-table img {
+    width: 40%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+#it-table #stardust {
+    width: 12%;
+    height: auto;
+}
+
+#price {
+    text-align: center;
+}
