@@ -1,8 +1,8 @@
 [
     {
         "id":"1",
-        "header": "1. Catch Pokemon",
-        "info": "Explore real-world locations to search for different kinds of pokemon! You can catch them by tapping on the Pokemon and flicking a Poke Ball at it."
+        "header": "1. Catch Pokémon",
+        "info": "Explore real-world locations to search for different kinds of Pokémon! You can catch them by tapping on the Pokémon and flicking a Poke Ball at it."
     },
     {
         "id":"2",
@@ -12,11 +12,11 @@
     {
         "id":"3",
         "header": "3. Complete Your Pokedex",
-        "info": "Try to discover and catch at least one of every Pokemon available. You can discover more Pokemon by evolving your Pokémon, which can be done by collecting lots of the same Pokemon and transferring them to get candies for evolution! Also, you can gather items at PokeStops, maybe getting an egg, and walking around for the egg to hatch into Pokemon!"
+        "info": "Try to discover and catch at least one of every Pokémon available. You can discover more Pokémon by evolving your Pokémon, which can be done by collecting lots of the same Pokémon and transferring them to get candies for evolution! Also, you can gather items at PokeStops, maybe getting an egg, and walking around for the egg to hatch into Pokémon!"
     },
     {
         "id":"4",
         "header": "4. Fight for your Team",
-        "info": "When you reach level 5, you can pick a team to join and can fight at a gym where other team members have placed their Pokemon. Training Pokemon at your team’s gym will increase prestige points, which will make the gym harder for the other teams to take over."
+        "info": "When you reach level 5, you can pick a team to join and can fight at a gym where other team members have placed their Pokémon. Training Pokémon at your team’s gym will increase prestige points, which will make the gym harder for the other teams to take over."
     }
    ]
