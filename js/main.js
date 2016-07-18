@@ -43,16 +43,16 @@ myApp.controller('HomeCtrl', ['$scope', '$http', '$filter', function ($scope, $h
 		$scope.descriptions = descriptions;
 		//console.log(response.data)
 	});
-	
-	$scope.toggle = function(id) {
-       var block = document.getElementById(id);
-       if(block.style.display == 'block') {
-          block.style.display = 'none';
-	   }else{
-          block.style.display = 'block';
-	   }
+
+	$scope.toggle = function (id) {
+		var block = document.getElementById(id);
+		if (block.style.display == 'block') {
+			block.style.display = 'none';
+		} else {
+			block.style.display = 'block';
+		}
 	}
-	
+
 }]);
 
 myApp.controller('PokedexCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
@@ -69,14 +69,14 @@ myApp.controller('ItemsCtrl', ['$scope', '$http', '$filter', function ($scope, $
 		console.log($scope.items);
 	});
 	$scope.ordering = "name";
-	$scope.sortBy = function(par) {
+	$scope.sortBy = function (par) {
 		$scope.ordering = par;
 	}
 }]);
 
-myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', function($scope, $http, $filter, $stateParams) {
+myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'PokeListService', function ($scope, $http, $filter, $stateParams, PokeListService) {
 	var number = "";
-	var poke ="";
+	var poke = "";
 	$http.get('data/kanto.json').then(function (response) {
 		number = $stateParams.pokemon;
 		poke = response.data;
@@ -88,9 +88,9 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', fu
 		$scope.pokedex = pokedex;
 
 		$http({
-			url: url, 
+			url: url,
 			method: "GET"
-		}).then(function(response){
+		}).then(function (response) {
 			var data = response.data;
 			console.log(data);
 			$scope.pokemon = data;
@@ -103,9 +103,43 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', fu
 				$('<p>No evolution before this!</p>').appendTo('#text');
 			}
 		});
-	})
+	});
+	$scope.addProduct = function (product, pokedex) {
+		PokeListService.addProduct(product, pokedex);
+		//console.log("saved ",localStorage.wishlist)
+	};
 }]);
 
-myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
-
+myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', 'PokeListService', function ($scope, $http, $filter, PokeListService) {
+	$scope.wishlist = PokeListService.wishlist;
+	$scope.ordering = "detail.names[0].name";
+	$scope.removePokemon = function (item) {
+		PokeListService.remove(item);
+	}
 }]);
+
+myApp.factory('PokeListService', function () {
+	var service = {};
+
+	if (localStorage.wishlist !== undefined) {
+		service.wishlist = JSON.parse(localStorage.wishlist);
+		//console.log(service.wishlist);
+	}
+	else {
+		service.wishlist = [];
+	}
+
+	service.addProduct = function (product, pokedex) {
+		service.wishlist.push({ 'detail': product, 'pokedex': pokedex });
+		localStorage.wishlist = JSON.stringify(service.wishlist);
+		console.log("saved ", localStorage.wishlist)
+	};
+
+	/*service.remove = function (item) {
+		var index = service.wishlist.indexOf(item);
+		service.wishlist.splice(index, 1);
+		localStorage.wishlist = service.wishlist;
+	}*/
+
+	return service;
+});
