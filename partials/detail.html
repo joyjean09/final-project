@@ -24,8 +24,8 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<p class="text-center" style="color:coral; font-weight:bold;">Evolve From</p>
-						<img ng-src="{{pokedexBefore.pokemon_species.image}}" style="margin:auto;display:block" id="imageBefore">
-						<p class="text-center" style="font-weight:bold;">{{pokedexBefore.pokemon_species.name}}</p>
+						<img ui-sref="detail( {'pokemon':pokedexBefore.entry_number} )" ng-src="{{pokedexBefore.pokemon_species.image}}" style="margin:auto;display:block" id="imageBefore">
+						<p ui-sref="detail( {'pokemon':pokedexBefore.entry_number} )" class="text-center" style="font-weight:bold;" id="text" >{{pokedexBefore.pokemon_species.name}}</p>
 					</div>
 					<div class="col-sm-6">
 						<p class="text-center" style="color:mediumseagreen; font-weight:bold;">Now</p>

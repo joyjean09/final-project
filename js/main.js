@@ -59,15 +59,18 @@ myApp.controller('ItemsCtrl', ['$scope', '$http', '$filter', function($scope, $h
 }]);
 
 myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', function($scope, $http, $filter, $stateParams) {
+	var number = "";
+	var poke ="";
 	$http.get('data/kanto.json').then(function (response) {
-		var number = $stateParams.pokemon;
+		number = $stateParams.pokemon;
+		poke = response.data;
 		console.log(number);
 		var pokedex = response.data.pokemon_entries[number - 1];
 		console.log(pokedex);
 		var url = pokedex.pokemon_species.url;
 		console.log(url);
 		$scope.pokedex = pokedex;
-		
+
 		$http({
 			url: url, 
 			method: "GET"
@@ -75,14 +78,15 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', fu
 			var data = response.data;
 			console.log(data);
 			$scope.pokemon = data;
+			if (data.evolves_from_species !== null) {
+				console.log('Im in');
+				console.log(number);
+				var pokedexBefore = poke.pokemon_entries[number - 2];
+				$scope.pokedexBefore = pokedexBefore;
+			} else {
+				$('<p>No evolution before this!</p>').appendTo('#text');
+			}
 		});
-
-		var number = $stateParams.pokemon;
-		console.log(number);
-		var pokedexBefore = response.data.pokemon_entries[number - 2];
-		console.log(pokedexBefore);
-		$scope.pokedexBefore = pokedexBefore;
-
 	})
 }]);
 

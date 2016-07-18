@@ -55,7 +55,7 @@ nav {
     background-position: center;
 }
 
-#pokemonImg, #pokemonTitle {
+#pokemonImg, #pokemonTitle, #imageBefore, #text {
     cursor: pointer;
 }
 
