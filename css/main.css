@@ -127,3 +127,8 @@ nav {
     background-color: lightyellow;
 }
 
+#addToWishList {
+    float: right;
+    margin-top: 45px;
+}
+

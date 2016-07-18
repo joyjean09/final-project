@@ -1,13 +1,17 @@
 <main class="container" role="main">
 	<div id="whiteBlock" class="container">
 		<div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
 				<h1>{{pokemon.names[0].name}}</h1>
 				<p>{{pokemon.names[8].name}}</p>
 				<p>#{{pokedex.entry_number}}</p><br>
             </div>
-			<div class="col-sm-6">
+			<div class="col-sm-4">
 				<img ng-src="{{pokedex.pokemon_species.image}}">
+            </div>
+			<div class="col-sm-4">
+				<!--<img ng-src="{{pokedex.pokemon_species.image}}">-->
+				<button id="addToWishList" type="submit" class="btn btn-primary">Add to wish list</button>
             </div>
 
 			<div id="yellowBlock" class="col-sm-12">
