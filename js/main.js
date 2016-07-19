@@ -82,6 +82,7 @@ myApp.controller('ItemsCtrl', ['$scope', '$http', '$filter', function ($scope, $
 myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'PokeListService', function ($scope, $http, $filter, $stateParams, PokeListService) {
 	var number = "";
 	var poke = "";
+	var test = {};
 	$http.get('data/kanto.json').then(function (response) {
 		number = $stateParams.pokemon;
 		poke = response.data;
@@ -99,6 +100,8 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 			var data = response.data;
 			//console.log(data);
 			$scope.pokemon = data;
+			console.log(data);
+			test = data;
 			if (data.evolves_from_species !== null) {
 				console.log('Im in');
 				console.log(number);
@@ -107,17 +110,39 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 			} else {
 				$('<p>No evolution before this!</p>').appendTo('#text');
 			}
+			
 		});
 	});
 	$scope.addProduct = function (product, pokedex) {
 		PokeListService.addProduct(product, pokedex);
-		//console.log("saved ",localStorage.wishlist)
 	};
+
+
+	function onReady(callback) {
+		var intervalID = window.setInterval(checkReady, 1200);
+		function checkReady() {
+			if (test !== {}) {
+				console.log(test);
+				window.clearInterval(intervalID);
+				callback.call(this);
+			}
+		}
+	}
+
+	function show(id, value) {
+		document.getElementById(id).style.display = value ? 'block' : 'none';
+	}
+
+	onReady(function () {
+		show('detailPageMain', true);
+		show('loading', false);
+	});
 }]);
 
 myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', '$uibModal', 'PokeListService', function ($scope, $http, $filter, $uibModal, PokeListService) {
 	$scope.wishlist = PokeListService.wishlist;
 	$scope.ordering = "detail.names[0].name";
+
 	$scope.confirm = function (selectedItem) {
 		$scope.item = selectedItem;
 		var modalInstance = $uibModal.open({
@@ -164,7 +189,6 @@ myApp.factory('PokeListService', function () {
 
 	if (localStorage.wishlist !== undefined) {
 		service.wishlist = JSON.parse(localStorage.wishlist);
-		//console.log(service.wishlist);
 	}
 	else {
 		service.wishlist = [];
@@ -184,3 +208,9 @@ myApp.factory('PokeListService', function () {
 
 	return service;
 });
+
+
+
+/*$('#addToWishList').click(function() {
+
+});*/

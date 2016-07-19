@@ -176,3 +176,22 @@ nav {
     margin-top: 45px;
     margin-bottom: 45px;
 }
+
+#page {
+    display: none;
+}
+#loading {
+    display: block;
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 100;
+    width: 100vw;
+    height: 200vw;
+    background-color: rgba(255, 255, 255, 1);
+    background-image: url("http://i.stack.imgur.com/MnyxU.gif");
+    /*background-image: url("http://2.media.dorkly.cvcdn.com/25/38/4d9df0e6985ab9e9218f3874ccf9649d.gif");*/
+    background-repeat: no-repeat;
+    background-position: center top 200px;
+    background-size: 10%;
+}
