@@ -34,6 +34,11 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 			templateUrl: 'partials/wishlist.html',
 			controller: 'WishlistCtrl'
 		})
+		.state('news', {
+			url: '/news', 
+			templateUrl: 'partials/news.html', 
+			controller: 'NewsCtrl'
+		})
 	$urlRouterProvider.otherwise('/pokedex');
 }]);
 
@@ -84,7 +89,7 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 		var pokedex = response.data.pokemon_entries[number - 1];
 		console.log(pokedex);
 		var url = pokedex.pokemon_species.url;
-		console.log(url);
+		//console.log(url);
 		$scope.pokedex = pokedex;
 
 		$http({
@@ -92,7 +97,7 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 			method: "GET"
 		}).then(function (response) {
 			var data = response.data;
-			console.log(data);
+			//console.log(data);
 			$scope.pokemon = data;
 			if (data.evolves_from_species !== null) {
 				console.log('Im in');
@@ -124,6 +129,19 @@ myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', 'PokeListService
 		var array = PokeListService.wishlist;
 	}
 }]);
+
+myApp.controller('NewsCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
+	$http({
+            url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+            method: "GET",
+            params: { 'api-key': "7472833e4b4e4e20b63a1ec2c443be2a", 'q': "pokemon", 'sort': "newest"}
+        }).then(function (data) {
+            var news = data.data.response.docs;
+            $scope.news = news;
+            console.log(news);
+	})
+}]);
+
 
 myApp.factory('PokeListService', function () {
 	var service = {};
