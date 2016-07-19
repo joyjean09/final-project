@@ -113,8 +113,15 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', 'PokeListService', function ($scope, $http, $filter, PokeListService) {
 	$scope.wishlist = PokeListService.wishlist;
 	$scope.ordering = "detail.names[0].name";
-	$scope.removePokemon = function (item) {
+	
+	/*$scope.removePokemon = function (item) {
 		PokeListService.remove(item);
+	}*/
+
+	$scope.cancel = function (wishlist, index) {
+		wishlist.splice(index, 1);
+		PokeListService.updateList(wishlist);
+		var array = PokeListService.wishlist;
 	}
 }]);
 
@@ -140,6 +147,12 @@ myApp.factory('PokeListService', function () {
 		service.wishlist.splice(index, 1);
 		localStorage.wishlist = service.wishlist;
 	}*/
+
+	service.updateList = function(list) {
+	  service.wishlist = list;
+	  localStorage.wishlist = JSON.stringify(service.wishlist);
+	  console.log("updated", localStorage.wishlist);
+  }
 
 	return service;
 });

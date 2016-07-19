@@ -15,7 +15,7 @@
             <div class="col-sm-4 col-md-2" style="text-align:center" ng-repeat="pokemon in wishlist | orderBy:ordering | filter:searchTerm">
                 <img ui-sref="detail( {'pokemon':pokemon.pokedex.entry_number} )" ng-src="{{pokemon.pokedex.pokemon_species.image}}" class="img">
                 <p ui-sref="detail( {'pokemon':pokemon.pokedex.entry_number} )" id="pokemonTitle" class="text-center">{{pokemon.detail.names[0].name}}</p>
-                <button type="button" class="btn btn-primary btn-sm" ng-click="removePokemon(pokemon)">Gotcha!</i></button>
+                <button type="button" class="btn btn-primary btn-sm" ng-click="cancel(wishlist, $index)">Gotcha!</i></button>
             </div>
         </div>
     </div>
