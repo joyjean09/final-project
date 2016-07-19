@@ -151,15 +151,6 @@ myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', '$uibModal', 'Po
 			scope: $scope //pass in all our scope variables!
 		});
 	}
-	/*$scope.removePokemon = function (item) {
-		PokeListService.remove(item);
-	}*/
-
-	$scope.cancel = function (item) {
-		var index = $scope.wishlist.indexOf(item);
-		$scope.wishlist = $scope.wishlist.splice(index, 1);
-		PokeListService.updateList($scope.wishlist);
-	}
 }]);
 
 
