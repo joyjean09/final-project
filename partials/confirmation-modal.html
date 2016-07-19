@@ -1,0 +1,13 @@
+
+<!-- <div class="modal-header">
+  <h3 class="modal-title">Select a Movie</h3>
+</div>-->
+<div style="text-align:center" class="modal-body">
+    <h1>Congradulation!<br>You caught {{item.detail.names[0].name}}!</h1>
+    <img ng-src="{{item.pokedex.pokemon_species.image}}" class="img"><br>
+    <p>Remove {{item.detail.names[0].name}} from your list?</p>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="ok(item)">Remove</button>
+  <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

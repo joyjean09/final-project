@@ -1,6 +1,6 @@
 'use strict';
 
-var myApp = angular.module('PokemonGoApp', ['ngSanitize', 'ui.router']);
+var myApp = angular.module('PokemonGoApp', ['ngSanitize', 'ui.router', 'ui.bootstrap']);
 //configure ui router; urlRouteProvider is default route if no other states are matched
 myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
@@ -115,20 +115,28 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 	};
 }]);
 
-myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', 'PokeListService', function ($scope, $http, $filter, PokeListService) {
+myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', '$uibModal', 'PokeListService', function ($scope, $http, $filter, $uibModal, PokeListService) {
 	$scope.wishlist = PokeListService.wishlist;
 	$scope.ordering = "detail.names[0].name";
-	
+	$scope.confirm = function (selectedItem) {
+		$scope.item = selectedItem;
+		var modalInstance = $uibModal.open({
+			templateUrl: 'partials/confirmation-modal.html', //partial to show
+			controller: 'ModalCtrl', //controller for the modal
+			scope: $scope //pass in all our scope variables!
+		});
+	}
 	/*$scope.removePokemon = function (item) {
 		PokeListService.remove(item);
 	}*/
 
-	$scope.cancel = function (wishlist, index) {
-		wishlist.splice(index, 1);
-		PokeListService.updateList(wishlist);
-		var array = PokeListService.wishlist;
+	$scope.cancel = function (item) {
+		var index = $scope.wishlist.indexOf(item);
+		$scope.wishlist = $scope.wishlist.splice(index, 1);
+		PokeListService.updateList($scope.wishlist);
 	}
 }]);
+
 
 myApp.controller('NewsCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
 	$http({
@@ -142,6 +150,23 @@ myApp.controller('NewsCtrl', ['$scope', '$http', '$filter', function ($scope, $h
 	})
 }]);
 
+
+myApp.controller('ModalCtrl', ['$scope', '$uibModalInstance', 'PokeListService', function ($scope, $uibModalInstance, PokeListService) {
+	console.log($scope.item);
+
+	$scope.ok = function (item) {
+		var index = $scope.wishlist.indexOf(item);
+		var wishlist = $scope.wishlist.splice(index, 1);
+		console.log(wishlist);
+		PokeListService.updateList(wishlist);
+		$uibModalInstance.dismiss('cancel');
+	};
+
+	$scope.cancel = function () {
+		$uibModalInstance.dismiss('cancel');
+	};
+
+}]);
 
 myApp.factory('PokeListService', function () {
 	var service = {};
@@ -160,17 +185,11 @@ myApp.factory('PokeListService', function () {
 		console.log("saved ", localStorage.wishlist)
 	};
 
-	/*service.remove = function (item) {
-		var index = service.wishlist.indexOf(item);
-		service.wishlist.splice(index, 1);
-		localStorage.wishlist = service.wishlist;
-	}*/
-
-	service.updateList = function(list) {
-	  service.wishlist = list;
-	  localStorage.wishlist = JSON.stringify(service.wishlist);
-	  console.log("updated", localStorage.wishlist);
-  }
+	service.updateList = function (list) {
+		service.wishlist = list;
+		localStorage.wishlist = JSON.stringify(service.wishlist);
+		console.log("updated", localStorage.wishlist);
+	}
 
 	return service;
 });
