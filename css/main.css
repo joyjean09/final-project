@@ -13,10 +13,19 @@ body{
     color: black;
     text-align: center;
 }
-a {
+
+.navbar-default .navbar-nav>li>a{
    color:white; 
 }
-a:hover, a:active {
+.icon-bar { 
+background-color: white;
+}
+
+.navbar-default {
+   background-color:#2c2c44;
+   border-color: #2c2c44;
+}
+#wishlist a:hover, #home a:hover, #pokedex a:hover, #items a:hover, #wishlist a:focus, #home a:focus, #pokedex a:focus, #items a:focus {
     color:orangered;
     text-decoration:none;
 }
@@ -24,9 +33,7 @@ footer p {
     color: white;
     text-align: center;
 }
-#wishlist {
-    float:right;
-}
+
 #whiteBackground , #whiteBlock {
     display: block;
     padding: 30px;
