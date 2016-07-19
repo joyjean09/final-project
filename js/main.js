@@ -1,6 +1,6 @@
 'use strict';
 
-var myApp = angular.module('PokemonGoApp', ['ngSanitize', 'ui.router']);
+var myApp = angular.module('PokemonGoApp', ['ngSanitize', 'ui.router', 'ui.bootstrap']);
 //configure ui router; urlRouteProvider is default route if no other states are matched
 myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
@@ -33,6 +33,11 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 			url: '/wishlist',
 			templateUrl: 'partials/wishlist.html',
 			controller: 'WishlistCtrl'
+		})
+		.state('news', {
+			url: '/news', 
+			templateUrl: 'partials/news.html', 
+			controller: 'NewsCtrl'
 		})
 	$urlRouterProvider.otherwise('/pokedex');
 }]);
@@ -85,7 +90,7 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 		var pokedex = response.data.pokemon_entries[number - 1];
 		console.log(pokedex);
 		var url = pokedex.pokemon_species.url;
-		console.log(url);
+		//console.log(url);
 		$scope.pokedex = pokedex;
 
 		$http({
@@ -93,7 +98,7 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 			method: "GET"
 		}).then(function (response) {
 			var data = response.data;
-			console.log(data);
+			//console.log(data);
 			$scope.pokemon = data;
 			console.log(data);
 			test = data;
@@ -134,15 +139,58 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 	});
 }]);
 
-myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', 'PokeListService', function ($scope, $http, $filter, PokeListService) {
+myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', '$uibModal', 'PokeListService', function ($scope, $http, $filter, $uibModal, PokeListService) {
 	$scope.wishlist = PokeListService.wishlist;
 	$scope.ordering = "detail.names[0].name";
 
-	$scope.cancel = function (wishlist, index) {
-		wishlist.splice(index, 1);
-		PokeListService.updateList(wishlist);
-		//var array = PokeListService.wishlist;
+	$scope.confirm = function (selectedItem) {
+		$scope.item = selectedItem;
+		var modalInstance = $uibModal.open({
+			templateUrl: 'partials/confirmation-modal.html', //partial to show
+			controller: 'ModalCtrl', //controller for the modal
+			scope: $scope //pass in all our scope variables!
+		});
 	}
+	/*$scope.removePokemon = function (item) {
+		PokeListService.remove(item);
+	}*/
+
+	$scope.cancel = function (item) {
+		var index = $scope.wishlist.indexOf(item);
+		$scope.wishlist = $scope.wishlist.splice(index, 1);
+		PokeListService.updateList($scope.wishlist);
+	}
+}]);
+
+
+myApp.controller('NewsCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
+	$http({
+            url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+            method: "GET",
+            params: { 'api-key': "7472833e4b4e4e20b63a1ec2c443be2a", 'q': "pokemon", 'sort': "newest"}
+        }).then(function (data) {
+            var news = data.data.response.docs;
+            $scope.news = news;
+            console.log(news);
+	})
+}]);
+
+
+myApp.controller('ModalCtrl', ['$scope', '$uibModalInstance', 'PokeListService', function ($scope, $uibModalInstance, PokeListService) {
+	console.log($scope.item);
+
+	$scope.ok = function (item) {
+		var index = $scope.wishlist.indexOf(item);
+		var wishlist = $scope.wishlist.splice(index, 1);
+		console.log(wishlist);
+		PokeListService.updateList(wishlist);
+		$uibModalInstance.dismiss('cancel');
+	};
+
+	$scope.cancel = function () {
+		$uibModalInstance.dismiss('cancel');
+	};
+
 }]);
 
 myApp.factory('PokeListService', function () {
@@ -161,11 +209,11 @@ myApp.factory('PokeListService', function () {
 		console.log("saved ", localStorage.wishlist)
 	};
 
-	service.updateList = function(list) {
-	  service.wishlist = list;
-	  localStorage.wishlist = JSON.stringify(service.wishlist);
-	  console.log("updated", localStorage.wishlist);
-  }
+	service.updateList = function (list) {
+		service.wishlist = list;
+		localStorage.wishlist = JSON.stringify(service.wishlist);
+		console.log("updated", localStorage.wishlist);
+	}
 
 	return service;
 });

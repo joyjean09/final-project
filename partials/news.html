@@ -1,0 +1,17 @@
+<main class="container" role="main">
+    <header>
+        <div id="header" class="container">
+            <h1 id="h1">Pokemon News</h1>
+            <p id="pokedex-description"> See the newest articles from New York Times about Pokemon Go!</p>
+        </div>
+    </header>
+    <div class="container" id="whiteBackground">
+    <div class="container" ng-repeat="article in news">
+        <h2>{{article.headline.main}}</h2>
+        <p>{{article.snippet}}</p>
+        <button class="btn btn-default"><a href={{article.web_url}}>Read More</a></button>
+     </div>
+        
+        
+    </div>
+    </main>
