@@ -17,20 +17,20 @@
         <table id="it-table" width="100%">
             <thead>
                 <tr>
-                    <th class="col-sm-2">Image</th>
-                    <th class="col-sm-2" ng-click="sortBy('name')">Item</th>
-                    <th class="col-sm-4" ng-clcik="sortBy('description')">Description</th>
-                    <th class="col-sm-2" ng-click="sortBy('-cost')">Price</th>
-                    <th class="col-sm-2" ng-click="sortBy('gain')">Gain Method</th>
+                    <th class="col-xs-2">Image</th>
+                    <th class="col-xs-2" ng-click="sortBy('name')">Item</th>
+                    <th class="col-xs-4" ng-clcik="sortBy('description')">Description</th>
+                    <th class="col-xs-2" ng-click="sortBy('-cost')">Price</th>
+                    <th class="col-xs-2" ng-click="sortBy('gain')">Gain Method</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in items | orderBy:ordering | filter:search:strict">
-                    <th class="col-sm-2 "><img ng-src="{{item.img}}"></th>
-                    <th class="col-sm-2 ">{{item.name}}</th>
-                    <th class="col-sm-4 ">{{item.description}}</th>
-                    <th class="col-sm-2 " id="price">{{item.cost}}<img id="coins " src="images/pokecoin.png " alt="A pokecoin"></th>
-                    <th class=" col-sm-2 ">{{item.gain}}</th>
+                    <th class="col-xs-2 "><img ng-src="{{item.img}}"></th>
+                    <th class="col-xs-2 ">{{item.name}}</th>
+                    <th class="col-xs-4 ">{{item.description}}</th>
+                    <th class="col-xs-2 " id="price">{{item.cost}}<img id="coins " src="images/pokecoin.png " alt="A pokecoin"></th>
+                    <th class="col-xs-2 ">{{item.gain}}</th>
                 </tr>
             </tbody>
         </table>
