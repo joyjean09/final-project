@@ -62,11 +62,17 @@ nav {
     margin-top: 30px;
     margin-bottom: 20px;
 }
+
 table a:hover {
     text-decoration:none;
 }
+
 td{
     font-weight:normal;
+}
+
+#article {
+    padding:2em;
 }
 #header {
     background-image: url("../images/grassland.jpg");

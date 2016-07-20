@@ -6,7 +6,7 @@
         </div>
     </header>
     <div class="container" id="whiteBackground">
-    <div class="container" ng-repeat="article in news">
+    <div class="container col-xs-12" id="article" ng-repeat="article in news">
         <h2>{{article.headline.main}}</h2>
         <p>{{article.snippet}}</p>
         <button class="btn btn-default"><a href={{article.web_url}}>Read More</a></button>
