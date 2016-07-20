@@ -124,7 +124,7 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 	// If not loaded then a loading page shows up.
 	// Page content desplays after data is loaded.
 	function onReady(callback) {
-		var intervalID = window.setInterval(checkReady, 1200);
+		var intervalID = window.setInterval(checkReady, 1400);
 		function checkReady() {
 			if (test !== {}) {
 				console.log(test);
