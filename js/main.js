@@ -35,8 +35,8 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, 
 			controller: 'WishlistCtrl'
 		})
 		.state('news', {
-			url: '/news', 
-			templateUrl: 'partials/news.html', 
+			url: '/news',
+			templateUrl: 'partials/news.html',
 			controller: 'NewsCtrl'
 		})
 	$urlRouterProvider.otherwise('/pokedex');
@@ -110,7 +110,7 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 			} else {
 				$('<p>No evolution before this!</p>').appendTo('#text');
 			}
-			
+
 		});
 	});
 	$scope.addProduct = function (product, pokedex) {
@@ -156,25 +156,27 @@ myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', '$uibModal', 'Po
 
 myApp.controller('NewsCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
 	$http({
-            url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
-            method: "GET",
-            params: { 'api-key': "7472833e4b4e4e20b63a1ec2c443be2a", 'q': "pokemon", 'sort': "newest"}
-        }).then(function (data) {
-            var news = data.data.response.docs;
-            $scope.news = news;
-            console.log(news);
+		url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+		method: "GET",
+		params: { 'api-key': "7472833e4b4e4e20b63a1ec2c443be2a", 'q': "pokemon", 'sort': "newest" }
+	}).then(function (data) {
+		var news = data.data.response.docs;
+		$scope.news = news;
+		console.log(news);
 	})
 }]);
 
 
 myApp.controller('ModalCtrl', ['$scope', '$uibModalInstance', 'PokeListService', function ($scope, $uibModalInstance, PokeListService) {
-	console.log($scope.item);
+	
 
 	$scope.ok = function (item) {
+		console.log($scope.wishlist);
 		var index = $scope.wishlist.indexOf(item);
 		var wishlist = $scope.wishlist.splice(index, 1);
-		console.log(wishlist);
-		PokeListService.updateList(wishlist);
+		console.log($scope.wishlist);
+		PokeListService.updateList($scope.wishlist);
+		$scope.wishlist = PokeListService.wishlist;
 		$uibModalInstance.dismiss('cancel');
 	};
 
@@ -197,20 +199,12 @@ myApp.factory('PokeListService', function () {
 	service.addProduct = function (product, pokedex) {
 		service.wishlist.push({ 'detail': product, 'pokedex': pokedex });
 		localStorage.wishlist = JSON.stringify(service.wishlist);
-		console.log("saved ", localStorage.wishlist)
 	};
 
 	service.updateList = function (list) {
 		service.wishlist = list;
 		localStorage.wishlist = JSON.stringify(service.wishlist);
-		console.log("updated", localStorage.wishlist);
 	}
 
 	return service;
 });
-
-
-
-/*$('#addToWishList').click(function() {
-
-});*/
