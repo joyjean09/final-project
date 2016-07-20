@@ -200,3 +200,7 @@ nav {
     padding: 9px;
     margin-left: 4px;
 }
+
+@media screen and (max-width: 320px) {
+    #whiteBackground #it-table .hidedd { display: none; }
+}
