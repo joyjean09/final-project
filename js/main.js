@@ -173,7 +173,7 @@ myApp.controller('ModalCtrl', ['$scope', '$uibModalInstance', 'PokeListService',
 	$scope.ok = function (item) {
 		var index = $scope.wishlist.indexOf(item);
 		var wishlist = $scope.wishlist.splice(index, 1);
-		console.log(wishlist);
+		//console.log(wishlist);
 		PokeListService.updateList(wishlist);
 		$uibModalInstance.dismiss('cancel');
 	};
@@ -208,9 +208,3 @@ myApp.factory('PokeListService', function () {
 
 	return service;
 });
-
-
-
-/*$('#addToWishList').click(function() {
-
-});*/
