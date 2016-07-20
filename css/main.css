@@ -200,3 +200,9 @@ nav {
     padding: 9px;
     margin-left: 4px;
 }
+
+#addedMessage {
+    color: orangered;
+    margin-top: 0px;
+    margin-left: 5px;
+}

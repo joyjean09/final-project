@@ -61,6 +61,7 @@ myApp.controller('HomeCtrl', ['$scope', '$http', '$filter', function ($scope, $h
 }]);
 
 myApp.controller('PokedexCtrl', ['$scope', '$http', '$filter', function ($scope, $http, $filter) {
+	// Calls the kanto.json data
 	$http.get('data/kanto.json').then(function (response) {
 		var data = response.data.pokemon_entries;
 		$scope.pokedex = data;
@@ -83,6 +84,7 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 	var number = "";
 	var poke = "";
 	var test = {};
+	// Calls the kanto data
 	$http.get('data/kanto.json').then(function (response) {
 		number = $stateParams.pokemon;
 		poke = response.data;
@@ -90,15 +92,14 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 		var pokedex = response.data.pokemon_entries[number - 1];
 		console.log(pokedex);
 		var url = pokedex.pokemon_species.url;
-		//console.log(url);
 		$scope.pokedex = pokedex;
 
+		// get an individual pokemon's API in the database.
 		$http({
 			url: url,
 			method: "GET"
 		}).then(function (response) {
 			var data = response.data;
-			//console.log(data);
 			$scope.pokemon = data;
 			console.log(data);
 			test = data;
@@ -113,11 +114,16 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 
 		});
 	});
+
+	// Add pokemon to wish list
 	$scope.addProduct = function (product, pokedex) {
 		PokeListService.addProduct(product, pokedex);
+		showDiv('addedMessage');
 	};
 
-
+	// check if the page data is loaded
+	// If not loaded then a loading page shows up.
+	// Page content desplays after data is loaded.
 	function onReady(callback) {
 		var intervalID = window.setInterval(checkReady, 1200);
 		function checkReady() {
@@ -129,14 +135,21 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 		}
 	}
 
+	// Show the page when loaded.
 	function show(id, value) {
 		document.getElementById(id).style.display = value ? 'block' : 'none';
 	}
 
+	// Calls the two checking function whenever a page is loaded.
 	onReady(function () {
 		show('detailPageMain', true);
 		show('loading', false);
 	});
+
+	// Shows message of "Added to wishlist!" after pressign add to wish list button
+	function showDiv(id) {
+		document.getElementById(id).style.display = "block";
+	}
 }]);
 
 myApp.controller('WishlistCtrl', ['$scope', '$http', '$filter', '$uibModal', 'PokeListService', function ($scope, $http, $filter, $uibModal, PokeListService) {
