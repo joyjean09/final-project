@@ -102,7 +102,6 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 			var data = response.data;
 			$scope.pokemon = data;
 			console.log(data);
-			test = data;
 			if (data.evolves_from_species !== null) {
 				console.log('Im in');
 				console.log(number);
@@ -111,7 +110,7 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 			} else {
 				$('<p>No evolution before this!</p>').appendTo('#text');
 			}
-
+			test = data;
 		});
 	});
 
