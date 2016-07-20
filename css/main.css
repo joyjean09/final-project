@@ -201,6 +201,6 @@ nav {
     margin-left: 4px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 768px) {
     #whiteBackground #it-table .hidedd { display: none; }
 }
