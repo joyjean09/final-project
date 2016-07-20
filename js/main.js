@@ -111,6 +111,8 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 				$('<p>No evolution before this!</p>').appendTo('#text');
 			}
 			test = data;
+			console.log('test: ');
+			console.log(test);
 		});
 	});
 
@@ -124,10 +126,12 @@ myApp.controller('DetailCtrl', ['$scope', '$http', '$filter', '$stateParams', 'P
 	// If not loaded then a loading page shows up.
 	// Page content desplays after data is loaded.
 	function onReady(callback) {
-		var intervalID = window.setInterval(checkReady, 1400);
+		var intervalID = window.setInterval(checkReady, 1000);
 		function checkReady() {
-			if (test !== {}) {
-				console.log(test);
+			if (Object.keys(test).length !== 0) {
+				//console.log('inside checkReady if statement');
+				//console.log('test length');
+				//console.log(Object.keys(test).length);
 				window.clearInterval(intervalID);
 				callback.call(this);
 			}
