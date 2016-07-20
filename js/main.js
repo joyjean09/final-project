@@ -185,7 +185,7 @@ myApp.controller('NewsCtrl', ['$scope', '$http', '$filter', function ($scope, $h
 
 myApp.controller('ModalCtrl', ['$scope', '$uibModalInstance', 'PokeListService', function ($scope, $uibModalInstance, PokeListService) {
 	
-
+	//remove item from wishlist
 	$scope.ok = function (item) {
 		console.log($scope.wishlist);
 		var index = $scope.wishlist.indexOf(item);
@@ -196,6 +196,7 @@ myApp.controller('ModalCtrl', ['$scope', '$uibModalInstance', 'PokeListService',
 		$uibModalInstance.dismiss('cancel');
 	};
 
+	//close the modal
 	$scope.cancel = function () {
 		$uibModalInstance.dismiss('cancel');
 	};
@@ -212,11 +213,13 @@ myApp.factory('PokeListService', function () {
 		service.wishlist = [];
 	}
 
+	//add item in to wishlist
 	service.addProduct = function (product, pokedex) {
 		service.wishlist.push({ 'detail': product, 'pokedex': pokedex });
 		localStorage.wishlist = JSON.stringify(service.wishlist);
 	};
 
+	//sync localStorage to list
 	service.updateList = function (list) {
 		service.wishlist = list;
 		localStorage.wishlist = JSON.stringify(service.wishlist);
