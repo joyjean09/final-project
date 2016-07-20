@@ -13,22 +13,22 @@
         </div>
     </header>
 
-    <div id="whiteBackground" class="container">
-        <table id="it-table" width="100%">
+    <div id="whiteBackground" style="overflow-x:auto;" class="container">
+        <table id="it-table" class="table">
             <thead>
                 <tr>
-                    <th class="col-xs-2">Image</th>
+                    <th class="col-xs-2 hidedd" >Image</th>
                     <th class="col-xs-2" ng-click="sortBy('name')">Item</th>
-                    <th class="col-xs-4" ng-clcik="sortBy('description')">Description</th>
+                    <th class="col-xs-4 hidedd" ng-clcik="sortBy('description')">Description</th>
                     <th class="col-xs-2" ng-click="sortBy('-cost')">Price</th>
-                    <th class="col-xs-2" ng-click="sortBy('gain')">Gain Method</th>
+                    <th class="col-xs-2 " ng-click="sortBy('gain')">Gain Method</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="item in items | orderBy:ordering | filter:search:strict">
-                    <th class="col-xs-2 "><img ng-src="{{item.img}}"></th>
+                    <th class="col-xs-2 hidedd"><img ng-src="{{item.img}}"></th>
                     <th class="col-xs-2 ">{{item.name}}</th>
-                    <th class="col-xs-4 ">{{item.description}}</th>
+                    <th class="col-xs-4 hidedd">{{item.description}}</th>
                     <th class="col-xs-2 " id="price">{{item.cost}}<img id="coins " src="images/pokecoin.png " alt="A pokecoin"></th>
                     <th class="col-xs-2 ">{{item.gain}}</th>
                 </tr>
